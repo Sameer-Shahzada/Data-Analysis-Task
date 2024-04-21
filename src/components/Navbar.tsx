@@ -1,4 +1,3 @@
-import React from 'react'
 import { AppShell, NavLink } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 

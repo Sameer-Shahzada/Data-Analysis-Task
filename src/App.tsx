@@ -1,10 +1,9 @@
-import React from 'react';
-import { useDisclosure } from '@mantine/hooks';
 import { Flex, AppShell } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import RouterSwitcher from './components/RouterSwitcher';
-import './App.css';
+
 
 function App() {
   const [opened, { toggle }] = useDisclosure();
@@ -23,7 +22,7 @@ function App() {
 
       <AppShell.Footer zIndex={opened ? 'auto' : 201}>
         <Flex justify="center">
-          Made by Md Sameer 😉
+          Made by Mohd Sameer 😉
         </Flex>
       </AppShell.Footer>
 

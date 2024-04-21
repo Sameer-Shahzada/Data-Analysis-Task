@@ -1,25 +1,23 @@
-import React from "react";
-import { Box, Table, Title } from "@mantine/core";
-import wineData from "./wine_data.json";
+import React from 'react';
+import { Box, Table, Title } from '@mantine/core';
+import wineData from './wine_data.json';
 
-const FlavanoidsTable = () => {
+const GammaTable = () => {
   const [tableData, setTableData] = React.useState([]);
 
   React.useEffect(() => {
     const processedData = wineData.reduce((acc, element) => {
       const alcoholClass = `Class ${element.Alcohol}`;
-      acc[alcoholClass] = (acc[alcoholClass] || []).concat(element.Flavanoids);
+      acc[alcoholClass] = (acc[alcoholClass] || []).concat((element.Ash * element.Hue)/element.Magnesium);
       return acc;
     }, {});
 
-    const classStatistics = Object.entries(processedData).map(
-      ([className, flavanoids]) => ({
-        className,
-        mean: calculateMean(flavanoids).toFixed(3),
-        median: calculateMedian(flavanoids).toFixed(3),
-        mode: calculateMode(flavanoids).toFixed(3),
-      })
-    );
+    const classStatistics = Object.entries(processedData).map(([className, flavanoids]) => ({
+      className,
+      mean: calculateMean(flavanoids).toFixed(3),
+      median: calculateMedian(flavanoids).toFixed(3),
+      mode: calculateMode(flavanoids).toFixed(3),
+    }));
 
     setTableData(classStatistics);
   }, []);
@@ -64,9 +62,9 @@ const FlavanoidsTable = () => {
 
   return (
     <>
-      <Box style={{marginBottom:'10px'}}>
+     <Box style={{marginBottom:'10px'}}>
         <Title order={2} style={{ textAlign: "center" }}>
-          Flavanoids Table
+          Gamma Table
         </Title>
       </Box>
       <Table>
@@ -81,21 +79,21 @@ const FlavanoidsTable = () => {
         <Table.Tbody>
           {/* Mean row */}
           <Table.Tr>
-            <Table.Td>Flavanoids Mean</Table.Td>
+            <Table.Td>Gamma Mean</Table.Td>
             {tableData.map((row) => (
               <Table.Td key={row.className}>{row.mean}</Table.Td>
             ))}
           </Table.Tr>
           {/* Mode row */}
           <Table.Tr>
-            <Table.Td>Flavanoids Mode</Table.Td>
+            <Table.Td>Gamma Mode</Table.Td>
             {tableData.map((row) => (
               <Table.Td key={row.className}>{row.mode}</Table.Td>
             ))}
           </Table.Tr>
           {/* Median row */}
           <Table.Tr>
-            <Table.Td>Flavanoids Median</Table.Td>
+            <Table.Td>Gamma Median</Table.Td>
             {tableData.map((row) => (
               <Table.Td key={row.className}>{row.median}</Table.Td>
             ))}
@@ -106,4 +104,4 @@ const FlavanoidsTable = () => {
   );
 };
 
-export default FlavanoidsTable;
+export default GammaTable;

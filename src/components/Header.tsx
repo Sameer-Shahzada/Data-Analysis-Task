@@ -1,12 +1,12 @@
-import React from 'react'
 import { Flex, AppShell, Burger, Button, useMantineColorScheme, useComputedColorScheme } from '@mantine/core';
-import { FaSun, FaMoon } from 'react-icons/fa'
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const Header = ({toggle, opened}: any) => {
+    // mantine color scheme setup
     const { setColorScheme } = useMantineColorScheme();
     const computedColorScheme = useComputedColorScheme('light')
 
-    // color scheme 
+    // color scheme toggling
     const toggleColorScheme = () => {
         setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark')
     }

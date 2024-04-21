@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import FlavanoidsTable from './FlavanoidsTable'
 import GammaTable from './GammaTable'
@@ -9,6 +8,7 @@ const RouterSwitcher = () => {
     return (
         <Routes>
             <Route path="*" element={<ErrorPage />} />
+            <Route index element={<FlavanoidsTable/>} />
             <Route path="/flavanoids_table" element={<FlavanoidsTable/>} />
             <Route path="/gamma_table" element={<GammaTable/>} />
         </Routes>
