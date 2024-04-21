@@ -47,7 +47,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 ## Flavanoids Table
-
+![FlavanoidsTable](./public/FlavanoidsTable.png)
 ## Gamma Table
-
+![GammaTable](./public/GammaTable.png)
 ## Error Page
+![ErrorPage](./public/ErrorPage.png)
